@@ -5,7 +5,11 @@ import cn.hutool.crypto.asymmetric.Sign;
 import cn.hutool.crypto.asymmetric.SignAlgorithm;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.demo.pojo.SysMenu;
+import com.demo.pojo.SysRole;
+import com.demo.pojo.SysRoleMenu;
 import com.demo.service.SysMenuService;
+import com.demo.service.SysRoleMenuService;
+import com.demo.service.SysRoleService;
 import com.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +24,11 @@ public class HelloContorller {
 private UserService userService;
 @Autowired
 private SysMenuService sysMenuService;
+@Autowired
+private SysRoleService sysRoleService;
+@Autowired
+private SysRoleMenuService sysRoleMenuService;
+
     @RequestMapping("/hello")
     public String hello() {
         return "hello";
@@ -68,6 +77,12 @@ private SysMenuService sysMenuService;
     @RequestMapping("/count")
     public  List<SysMenu> hell06() {
         List<SysMenu> list = sysMenuService.list();
+       /* List<SysRole> list1 = sysRoleService.list();
+        List<SysRole> list2 = sysRoleService.list();
+        List<SysRoleMenu> list3 = sysRoleMenuService.list();
+        System.out.println(list1);
+        System.out.println(list2);
+        System.out.println(list3);*/
         return list;
     }
 

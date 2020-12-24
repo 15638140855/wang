@@ -31,11 +31,11 @@ public class SelfUserDetailsService implements UserDetailsService {
     @Override
     public SelfUserEntity loadUserByUsername(String username) throws UsernameNotFoundException {
         // 查询用户信息
-        SysUser sysUserEntity =sysUserService.selectUserByName(username);
-        if (sysUserEntity!=null){
+        SysUser sysUser =sysUserService.selectUserByName(username);
+        if (sysUser!=null){
             // 组装参数
             SelfUserEntity selfUserEntity = new SelfUserEntity();
-            BeanUtils.copyProperties(sysUserEntity,selfUserEntity);
+            BeanUtils.copyProperties(sysUser,selfUserEntity);
             return selfUserEntity;
         }
         return null;

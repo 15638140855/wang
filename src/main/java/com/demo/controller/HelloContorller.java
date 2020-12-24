@@ -5,12 +5,8 @@ import cn.hutool.crypto.asymmetric.Sign;
 import cn.hutool.crypto.asymmetric.SignAlgorithm;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.demo.pojo.SysMenu;
-import com.demo.pojo.SysRole;
-import com.demo.pojo.SysRoleMenu;
-import com.demo.service.SysMenuService;
-import com.demo.service.SysRoleMenuService;
-import com.demo.service.SysRoleService;
-import com.demo.service.UserService;
+import com.demo.pojo.SysUser;
+import com.demo.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,29 +17,34 @@ import java.util.Map;
 @RestController
 @RequestMapping("/hello")
 public class HelloContorller {
-@Autowired
-private UserService userService;
-@Autowired
-private SysMenuService sysMenuService;
-@Autowired
-private SysRoleService sysRoleService;
-@Autowired
-private SysRoleMenuService sysRoleMenuService;
+    @Autowired
+    private UserService userService;
+    @Autowired
+    private SysMenuService sysMenuService;
+    @Autowired
+    private SysUserService sysUserService;
+    @Autowired
+    private SysRoleService sysRoleService;
+    @Autowired
+    private SysRoleMenuService sysRoleMenuService;
 
     @RequestMapping("/hello")
     public String hello() {
         return "hello";
     }
+
     /*登陆*/
     @RequestMapping("/login")
     public String hello1() {
         return "登陆成功";
     }
+
     /*登陆*/
     @RequestMapping("/admin")
     public String admin() {
         return "您拥有访问admin的权限";
     }
+
     /*注销*/
     @RequestMapping("/logout")
     public String hello2() {
@@ -61,22 +62,24 @@ private SysRoleMenuService sysRoleMenuService;
         boolean verify = sign.verify(data, signed);
         return sign.toString();
     }
+
     /*注销*/
-    @RequestMapping("/getgetAllUserMessage")
-    public  List<Map<String, Object>> hell04() {
+    @RequestMapping(value = "/getgetAllUserMessage")
+    public List<Map<String, Object>> hell04() {
         List<Map<String, Object>> maps = userService.getgetAllUserMessage();
         return maps;
     }
-   /*testSysMenu*/
-    @RequestMapping("/getBaseMapper")
-    public  BaseMapper<SysMenu> hell05() {
+
+    /*testSysMenu*/
+    @RequestMapping("/getBaseMapper" )
+    public BaseMapper<SysMenu> hell05() {
         BaseMapper<SysMenu> baseMapper = sysMenuService.getBaseMapper();
         return baseMapper;
     }
 
     /*注销*/
     @RequestMapping("/count")
-    public  List<SysMenu> hell06() {
+    public List<SysMenu> hell06() {
         List<SysMenu> list = sysMenuService.list();
        /* List<SysRole> list1 = sysRoleService.list();
         List<SysRole> list2 = sysRoleService.list();
@@ -87,4 +90,10 @@ private SysRoleMenuService sysRoleMenuService;
         return list;
     }
 
+    /*注销*/
+    @RequestMapping("/getWang")
+    public SysUser hell07() {
+        SysUser wang = sysUserService.selectUserByName("wang");
+        return wang;
+    }
 }

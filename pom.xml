@@ -92,8 +92,29 @@
             <artifactId>jjwt</artifactId>
             <version>0.9.0</version>
         </dependency>
-
     </dependencies>
+
+    <!--profiles-->
+    <profiles>
+        <!--开发环境 -->
+        <profile>
+            <id>dev</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <spring.profiles.active>dev</spring.profiles.active>
+            </properties>
+        </profile>
+        <!--生产环境 -->
+        <profile>
+            <id>prod</id>
+            <properties>
+                <spring.profiles.active>prod</spring.profiles.active>
+            </properties>
+        </profile>
+    </profiles>
+
     <build>
         <plugins>
             <plugin>

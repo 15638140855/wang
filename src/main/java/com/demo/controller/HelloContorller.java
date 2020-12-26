@@ -7,6 +7,9 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.demo.pojo.SysMenu;
 import com.demo.pojo.SysUser;
 import com.demo.service.*;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -63,7 +66,7 @@ public class HelloContorller {
         return sign.toString();
     }
 
-    /*注销*/
+
     @RequestMapping(value = "/getgetAllUserMessage")
     public List<Map<String, Object>> hell04() {
         List<Map<String, Object>> maps = userService.getgetAllUserMessage();

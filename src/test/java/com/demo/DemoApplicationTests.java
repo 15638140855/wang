@@ -6,6 +6,7 @@ import com.demo.pojo.SysUserRole;
 import com.demo.service.SysUserRoleService;
 import com.demo.service.SysUserService;
 import org.junit.jupiter.api.Test;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -35,6 +36,15 @@ class DemoApplicationTests {
         sysUserRoleEntity.setUserId(sysUserEntity.getUserId());
         sysUserRoleService.save(sysUserRoleEntity);
         System.out.println(sysUserEntity);
+    }
+
+    //使用springboot的测试类，然后注入RabbitTemplate模板类
+    @Autowired
+    private RabbitTemplate rabbitTemplate;
+
+    @Test
+    void helloWorldProvider(){
+        rabbitTemplate.convertAndSend("hello","hhh");//给hello队列发送消息
     }
 
 }

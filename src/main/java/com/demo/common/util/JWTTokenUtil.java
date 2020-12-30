@@ -1,7 +1,6 @@
 package com.demo.common.util;
 
 import com.alibaba.fastjson.JSON;
-
 import com.demo.common.config.JWTConfig;
 import com.demo.security.entity.SelfUserEntity;
 import io.jsonwebtoken.Jwts;

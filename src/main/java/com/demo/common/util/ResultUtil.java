@@ -1,5 +1,6 @@
 package com.demo.common.util;
 
+import ch.qos.logback.classic.Logger;
 import com.alibaba.fastjson.JSON;
 import lombok.extern.slf4j.Slf4j;
 
@@ -15,6 +16,8 @@ import java.util.Map;
  */
 @Slf4j
 public class ResultUtil {
+
+    private static Logger log;
 
     /**
      * 私有化构造器

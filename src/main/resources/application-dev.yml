@@ -6,12 +6,12 @@ spring:
   application:
     name: rabbotmq-provider
   #rabbitmq
-  rabbitmq:
-    host: 47.110.147.126
-    port: 5672
-    username: wang
-    password: wang
-    virtual-host: /wang
+  #rabbitmq:
+   # host: 47.110.147.126
+   # port: 5672
+   # username: wang
+   # password: wang
+   # virtual-host: /wang
   thymeleaf:
     cache: false
   datasource:

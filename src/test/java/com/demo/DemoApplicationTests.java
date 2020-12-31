@@ -44,8 +44,13 @@ class DemoApplicationTests {
         rabbitTemplate.convertAndSend("hello","hhh");//给hello队列发送消息
     }*/
 
+    int test(int a ){
+        System.out.println(a);
+        return a;
+    }
     @Test
     void test1() {
+
    /*     List<String> row1 = CollUtil.newArrayList("aa", "bb", "cc", "dd");
         List<String> row2 = CollUtil.newArrayList("aa1", "bb1", "cc1", "dd1");
         List<String> row3 = CollUtil.newArrayList("aa2", "bb2", "cc2", "dd2");
@@ -64,5 +69,6 @@ class DemoApplicationTests {
         writer.write(rows, true);
        //关闭writer，释放内存
         writer.close();*/
+        // 不用类型声明
     }
 }
